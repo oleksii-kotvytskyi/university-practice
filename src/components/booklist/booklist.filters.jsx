@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { setVisibilityFilter } from '../../redux/filters/actions';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { setVisibilityFilter } from "../../redux/filters/actions";
 
 class FiltersForBookList extends React.Component {
   constructor(props) {
@@ -20,17 +20,17 @@ class FiltersForBookList extends React.Component {
   render() {
     const { filter } = this.props;
     return (
-      <form className="form-inline mt-4 d-flex justify-content-around">
+      <form className="pl-5 form-inline mt-4 d-flex">
         <input
-          className="form-control col-6 col-md-3 col-xl-2"
+          className="form-control col-6 col-md-3 col-xl-2 mr-5"
           type="text"
           placeholder="Search books by title"
-          onChange={e => this.handleChange(e, 'title')}
+          onChange={(e) => this.handleChange(e, "title")}
           value={filter.title}
         />
         <select
           className="form-control col-5 col-md-3 col-xl-2"
-          onChange={e => this.handleChange(e, 'price')}
+          onChange={(e) => this.handleChange(e, "price")}
           value={filter.price}
         >
           <option value="all">Price</option>
@@ -51,13 +51,13 @@ FiltersForBookList.propTypes = {
   setFilter: PropTypes.func.isRequired,
 };
 
-const mapDispathcToProps = dispatch => ({
-  setFilter: filter => dispatch(setVisibilityFilter(filter)),
+const mapDispathcToProps = (dispatch) => ({
+  setFilter: (filter) => dispatch(setVisibilityFilter(filter)),
 });
 
 export default connect(
-  state => ({
+  (state) => ({
     filter: state.filterReducer,
   }),
-  mapDispathcToProps,
+  mapDispathcToProps
 )(FiltersForBookList);

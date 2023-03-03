@@ -1,12 +1,11 @@
 {
   "name": "js-band-final-task",
-  "homepage": "https://kotaleksei.github.io/js-band-final-task/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

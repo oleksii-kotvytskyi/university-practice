@@ -1,11 +1,7 @@
 ## Ciklum University: JS Band Internship. Final Task
 
-[Demo](https://kotaleksei.github.io/js-band-final-task)
-
 ## To start the project should:
 
-1. git clone https://github.com/oleksii-kotvytskyi/js-band-final-task.git
-2. cd js-band-final-task/
 3. npm i
 4. npm start
 
