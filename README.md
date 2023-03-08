@@ -1,9 +1,9 @@
-## Ciklum University: JS Band Internship. Final Task
+## LNU practice
 
 ## To start the project should:
 
-3. npm i
-4. npm start
+1. npm i
+2. npm start
 
 After that in browser automaticly open page _localhost:3000_
 
