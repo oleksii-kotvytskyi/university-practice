@@ -4,10 +4,10 @@ import {
   PURCHASE_BOOKS_REQUEST,
   PURCHASE_BOOKS_SUCCES,
   CLEAR_CART_AFTER_LOGOUT,
-} from './actions';
+} from "./actions";
 
-const books = JSON.parse(localStorage.getItem('cart'))
-  ? JSON.parse(localStorage.getItem('cart'))
+const books = JSON.parse(localStorage.getItem("cart"))
+  ? JSON.parse(localStorage.getItem("cart"))
   : [];
 
 const initialState = {
@@ -16,16 +16,16 @@ const initialState = {
   isLoading: false,
 };
 
-export const getCountBooksInCart = state =>
+export const getCountBooksInCart = (state) =>
   state.cartReducer.books.reduce(
     (acumulator, book) => Number(acumulator) + Number(book.count),
-    0,
+    0
   );
 
-export const getCountPriceBooksIcCart = state =>
+export const getCountPriceBookIcCart = (state) =>
   state.cartReducer.books.reduce(
     (acumulator, book) => Number(acumulator) + Number(book.totalPrice),
-    0,
+    0
   );
 
 const cartReducer = (state = initialState, action) => {
@@ -33,22 +33,23 @@ const cartReducer = (state = initialState, action) => {
 
   switch (type) {
     case ADD_BOOKS_TO_CART: {
-      let result = state.books.find(el => el.id === action.payload.id);
+      let result = state.books.find((el) => el.id === action.payload.id);
 
       if (result) {
-        result = state.books.map(book =>
+        result = state.books.map((book) =>
           book.id === action.payload.id
             ? {
                 ...book,
                 count: Number(book.count) + Number(action.payload.count),
-                totalPrice: Number(book.totalPrice) + Number(action.payload.totalPrice),
+                totalPrice:
+                  Number(book.totalPrice) + Number(action.payload.totalPrice),
               }
-            : book,
+            : book
         );
       } else {
         result = [...state.books, action.payload];
       }
-      localStorage.setItem('cart', JSON.stringify(result));
+      localStorage.setItem("cart", JSON.stringify(result));
       return {
         ...state,
         books: result,
@@ -61,7 +62,7 @@ const cartReducer = (state = initialState, action) => {
       };
     }
     case PURCHASE_BOOKS_SUCCES: {
-      localStorage.removeItem('cart');
+      localStorage.removeItem("cart");
       return {
         ...state,
         isLoading: false,

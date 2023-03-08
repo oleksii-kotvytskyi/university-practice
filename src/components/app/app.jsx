@@ -1,13 +1,13 @@
-import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import '../../styles';
-import SignInPage from '../../pages/sign-in';
-import BooksPage from '../../pages/books';
-import BookPage from '../../pages/book';
-import CartPage from '../../pages/cart';
-import NotFoundPage from '../../pages/notfound';
-import PrivateComponent from '../hoc';
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import "../../styles";
+import SignInPage from "../../pages/sign-in";
+import BooksPage from "../../pages/books";
+import BookPage from "../../pages/book";
+import CartPage from "../../pages/cart";
+import NotFoundPage from "../../pages/notfound";
+import PrivateComponent from "../hoc";
 
 function App() {
   return (

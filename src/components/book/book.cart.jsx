@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { addBooksToCart } from '../../redux/cart/actions';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addBooksToCart } from "../../redux/cart/actions";
 
 class BookCart extends React.Component {
   constructor(props) {
@@ -53,7 +53,7 @@ class BookCart extends React.Component {
       actualCountBooks = book.count;
     }
     if (booksInCart && book) {
-      const findBook = booksInCart.find(el => el.id === book.id);
+      const findBook = booksInCart.find((el) => el.id === book.id);
 
       if (findBook) {
         actualCountBooks = book.count - Number(findBook.count);
@@ -73,7 +73,10 @@ class BookCart extends React.Component {
                 <span>In Stock:</span>
                 <span>{actualCountBooks} books</span>
               </div>
-              <label className="d-flex justify-content-between mt-3" htmlFor="countbooks">
+              <label
+                className="d-flex justify-content-between mt-3"
+                htmlFor="countbooks"
+              >
                 Count
                 <input
                   id="countbooks"
@@ -85,7 +88,7 @@ class BookCart extends React.Component {
                   max={actualCountBooks}
                   onChange={this.handleChange}
                   placeholder="0"
-                  style={{ width: '80px' }}
+                  style={{ width: "80px" }}
                 />
               </label>
               <div className="d-flex justify-content-between mt-3">
@@ -125,11 +128,11 @@ BookCart.propTypes = {
   addBooksToCartCT: PropTypes.func.isRequired,
 };
 
-const mapDispathToProps = dispatch => ({
-  addBooksToCartCT: books => dispatch(addBooksToCart(books)),
+const mapDispathToProps = (dispatch) => ({
+  addBooksToCartCT: (books) => dispatch(addBooksToCart(books)),
 });
 
-export default connect(state => {
+export default connect((state) => {
   return {
     book: state.bookReducer.book,
     booksInCart: state.cartReducer.books,

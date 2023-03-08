@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import CartDescription from './cart.description';
-import CartIsEmpty from './cart.empty';
-import PurchaseMessage from './purchase.message';
-import { purchaseBooks } from '../../redux/cart/actions';
-import Spinner from '../spinner';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import CartDescription from "./cart.description";
+import CartIsEmpty from "./cart.empty";
+import PurchaseMessage from "./purchase.message";
+import { purchaseBooks } from "../../redux/cart/actions";
+import Spinner from "../spinner";
 
 class Cart extends React.Component {
   constructor(props) {
@@ -13,8 +13,8 @@ class Cart extends React.Component {
     this.state = {
       purchase: {
         value: false,
-        messageSucces: 'Thank you for purchasing books in our store!',
-        messageError: 'Request is invalid',
+        messageSucces: "Thank you for purchasing books in our store!",
+        messageError: "Request is invalid",
       },
     };
     this.handleClick = this.handleClick.bind(this);
@@ -25,7 +25,7 @@ class Cart extends React.Component {
     const { booksInCart, purchaseBooksCT } = this.props;
     const booksForRequest = [];
 
-    booksInCart.forEach(book => {
+    booksInCart.forEach((book) => {
       for (let i = 0; i < book.count; i += 1) {
         booksForRequest.push(book.id);
       }
@@ -41,7 +41,8 @@ class Cart extends React.Component {
       purchase: { messageSucces, messageError },
       purchase,
     } = this.state;
-    const CartInfo = booksInCart.length > 0 ? <CartDescription /> : <CartIsEmpty />;
+    const CartInfo =
+      booksInCart.length > 0 ? <CartDescription /> : <CartIsEmpty />;
     const CartView = purchase.value ? (
       <PurchaseMessage message={error ? messageError : messageSucces} />
     ) : (
@@ -54,7 +55,7 @@ class Cart extends React.Component {
           disabled={!booksInCart.length}
           type="button"
           className={`btn ${
-            booksInCart.length ? 'btn-success' : 'btn-danger'
+            booksInCart.length ? "btn-success" : "btn-danger"
           } d-block ml-auto mr-5 mt-5`}
           onClick={this.handleClick}
         >
@@ -77,7 +78,7 @@ Cart.propTypes = {
   error: PropTypes.oneOfType([PropTypes.object]),
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     booksInCart: state.cartReducer.books,
     isLoading: state.cartReducer.isLoading,
@@ -85,8 +86,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  purchaseBooksCT: books => dispatch(purchaseBooks(books)),
+const mapDispatchToProps = (dispatch) => ({
+  purchaseBooksCT: (books) => dispatch(purchaseBooks(books)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

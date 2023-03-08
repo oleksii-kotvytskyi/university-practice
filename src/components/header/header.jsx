@@ -11,7 +11,7 @@ const Header = ({
   isAuthentificated,
   avatar,
   username,
-  countBooksInCart,
+  countbooksInCart,
   handleLogoutCT,
 }) => {
   return (
@@ -43,7 +43,7 @@ const Header = ({
                   height="50"
                   className="mt-3"
                 />
-                <div className="cart-countbooks">{countBooksInCart}</div>
+                <div className="cart-countbooks">{countbooksInCart}</div>
               </Link>
             </li>
             <li>
@@ -81,7 +81,7 @@ Header.propTypes = {
   isAuthentificated: PropTypes.bool.isRequired,
   avatar: PropTypes.string,
   username: PropTypes.string,
-  countBooksInCart: PropTypes.number.isRequired,
+  countbooksInCart: PropTypes.number.isRequired,
   handleLogoutCT: PropTypes.func.isRequired,
 };
 
@@ -90,7 +90,7 @@ const mapStateToProps = (state) => {
     isAuthentificated: state.signInReducer.isAuthentificated,
     avatar: state.signInReducer.avatar,
     username: state.signInReducer.username,
-    countBooksInCart: getCountBooksInCart(state),
+    countbooksInCart: getCountBooksInCart(state),
   };
 };
 

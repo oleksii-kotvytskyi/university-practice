@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { getCountPriceBooksIcCart } from '../../redux/cart/reducer';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { getCountPriceBookIcCart } from "../../redux/cart/reducer";
 
 const CartDescription = ({ booksInCart, totalPrice }) => {
   return (
@@ -16,7 +16,7 @@ const CartDescription = ({ booksInCart, totalPrice }) => {
             </tr>
           </thead>
           <tbody>
-            {booksInCart.map(book => (
+            {booksInCart.map((book) => (
               <tr key={book.id}>
                 <td className="table-active">{book.title}</td>
                 <td className="table-active">{book.count}</td>
@@ -38,10 +38,10 @@ CartDescription.propTypes = {
   totalPrice: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     booksInCart: state.cartReducer.books,
-    totalPrice: getCountPriceBooksIcCart(state),
+    totalPrice: getCountPriceBookIcCart(state),
   };
 };
 
