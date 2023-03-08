@@ -1,6 +1,6 @@
-import React from 'react';
-import Header from '../components/header';
-import Book from '../components/book';
+import React from "react";
+import Header from "../components/header";
+import Book from "../components/book";
 
 const BookPage = () => {
   return (
