@@ -1,16 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import { Dispatch } from "redux";
+import { FilterType } from "../../types";
 import { setVisibilityFilter } from "../../redux/filters/actions";
+import { RootState } from "../../redux/store";
 
-class FiltersForBookList extends React.Component {
-  constructor(props) {
+type BookListProps = {
+  filter: FilterType;
+  setFilter: (v: FilterType) => void;
+};
+
+class FiltersForBookList extends React.Component<BookListProps> {
+  constructor(props: any) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e, name) {
+  handleChange(
+    e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>,
+    name: keyof FilterType
+  ) {
     const { value } = e.target;
     const { setFilter, filter } = this.props;
 
@@ -43,20 +53,12 @@ class FiltersForBookList extends React.Component {
   }
 }
 
-FiltersForBookList.propTypes = {
-  filter: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-  }).isRequired,
-  setFilter: PropTypes.func.isRequired,
-};
-
-const mapDispathcToProps = (dispatch) => ({
-  setFilter: (filter) => dispatch(setVisibilityFilter(filter)),
+const mapDispathcToProps = (dispatch: Dispatch<any>) => ({
+  setFilter: (filter: FilterType) => dispatch(setVisibilityFilter(filter)),
 });
 
 export default connect(
-  (state) => ({
+  (state: RootState) => ({
     filter: state.filterReducer,
   }),
   mapDispathcToProps

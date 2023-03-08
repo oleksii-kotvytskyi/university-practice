@@ -17,7 +17,6 @@ const Header = ({
   return (
     <div>
       <div className="bg-secondary border-bottom d-flex justify-content-around flex-wrap">
-        {console.log(isAuthentificated)}
         <h1
           className={`h2 pt-4 pb-2 ${isAuthentificated ? "pl-5" : ""}`}
           style={{ color: "white" }}
