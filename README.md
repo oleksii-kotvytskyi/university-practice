@@ -18,3 +18,5 @@ After that in browser automaticly open page _localhost:3000_
 #### 4. CI/CD (Travis)
 
 #### 5. Eslint (airbnb/react rules)
+
+#### 6. TypeScript
