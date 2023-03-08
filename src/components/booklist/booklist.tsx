@@ -4,20 +4,17 @@ import { Dispatch } from "redux";
 import { getBooks } from "../../redux/books/actions";
 import { RootState } from "../../redux/store";
 import BookListItem from "../booklist-item";
-import { BookI } from "../../types";
+import { BookI, FilterType } from "../../types";
 import Spinner from "../spinner";
 import FiltersForBookList from "./booklist.filters";
 import sorted from "../../helpers/sorted";
 
 type BookListProps = {
-  books?: BookI;
+  books?: BookI[];
   getBooksCT: () => void;
   isLoading: boolean;
   error?: string;
-  filter: {
-    title: string;
-    price: string;
-  };
+  filter: FilterType;
 };
 
 class BookList extends React.Component<BookListProps> {

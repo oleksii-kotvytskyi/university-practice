@@ -7,7 +7,7 @@ import {
 import { BookI } from "../../types";
 
 type StateType = {
-  books?: BookI;
+  books?: BookI[];
   error?: string;
   isLoading: boolean;
 };
@@ -20,7 +20,7 @@ const initialState: StateType = {
 
 type Success_T = {
   type: "GET_BOOKS_SUCCES";
-  payload: BookI;
+  payload: BookI[];
 };
 
 type Error_T = {

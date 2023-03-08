@@ -1,6 +1,10 @@
+import { SORT_BY } from "./redux/filters/actions";
+
 export enum BookLevel {
   Intermediate = "Intermediate",
 }
+
+export type FilterType = typeof SORT_BY;
 
 export interface BookI {
   author: string;
@@ -19,8 +23,5 @@ export type BookListProps = {
   getBooksCT: () => void;
   isLoading: boolean;
   error?: string;
-  filter: {
-    title: string;
-    price: string;
-  };
+  filter: FilterType;
 };
